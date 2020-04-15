@@ -13,7 +13,7 @@ def server():
     data = request.get_data().decode('utf-8')
     data = loads(data)
     print data
-    work.oper(data)
+    work.process(data)
     return ''
 
 
