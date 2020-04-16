@@ -5,5 +5,15 @@
         "user": "flask",
         "password": "123456",
         "db": "bot"
+    },
+    "nmsl":
+    {
+        "on": true,
+        "key": ["nmsl","废物","傻逼","你妈的"] 
+    },
+    "idiom":
+    {
+        "on": true,
+        "key": ["成语接龙","接龙游戏"]
     }
 }

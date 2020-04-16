@@ -97,8 +97,7 @@ def get_response(message, uid):  # 将回复处理按照优先级排列 根据�
     # ---------
     # 自我介绍
     # ---------
-    res = """我是Noir哟，由Navi开发的第一代基于 HTTP + Flask 的 QuneBot。
-    详细信息可以在这里查看哦:https://navihx.github.io/2020/04/09/QQBot%E5%BC%80%E5%8F%91/\n"""
+    res = """我是Noir哟，由Navi开发的第一代基于 HTTP + Flask 的 QuneBot。详细信息可以在这里查看哦:https://navihx.github.io/2020/04/09/QQBot%E5%BC%80%E5%8F%91/\n"""
     pattern = re.compile(u'自我介绍')
     matched = re.search(pattern, message)
     if matched:
