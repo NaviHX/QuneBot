@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <title>QuneBot后台管理</title>
+    <body>
+        users:<br>
+        <table border="1">
+            <tr>
+                <td> uid </td>
+                <td> name </td>
+            </tr>
+            {% for user in list %}
+                <tr>
+                    <td> {{user[0]}} </td>
+                    <td> {{user[1]}} </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <form action="http:///group_send" method = "post">
+            群发信息
+            <p><input type="text" name="message"></p>
+            <p><input type = "submit" value = "发送" /></p>
+        </form>
+        配置信息:<br>
+        {{setting}}
+    </body>
+</html>

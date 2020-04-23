@@ -3,6 +3,8 @@ import MySQLdb
 import json
 import send
 import io
+import hashlib
+import os
 file = io.open('setting.json', 'r', encoding='utf-8')
 setting = json.load(file)
 host = setting['database']['host']
@@ -84,3 +86,38 @@ def change_state(uid, state, db):
         db.rollback
         return 0
     return 1
+
+
+def check_admin(password=None):
+    if os.path.exists('admin'):
+        f = open('admin', 'r')
+        if password is None:
+            pwd = raw_input("password:")
+        else:
+            pwd = password
+        pwd = hashlib.md5(pwd)
+        pwd = pwd.hexdigest()
+        key = f.readline()
+        print pwd, key, password
+        if pwd == key:
+            return 1
+        else:
+            return 0
+        f.close()
+    else:
+        f = open('admin', 'w')
+        pwd = raw_input("input new password:")
+        pwd = hashlib.md5(pwd)
+        pwd = pwd.hexdigest()
+        f.write(pwd)
+        f.close()
+        return 1
+
+
+def get_users():
+    db = connect_db()
+    cursor = db.cursor()
+    command = 'select * from users'
+    cursor.execute(command)
+    data = cursor.fetchall()
+    return data
