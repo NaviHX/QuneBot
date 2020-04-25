@@ -98,7 +98,7 @@ def check_admin(password=None):
         pwd = hashlib.md5(pwd)
         pwd = pwd.hexdigest()
         key = f.readline()
-        print pwd, key, password
+        # print pwd, key, password
         if pwd == key:
             return 1
         else:
